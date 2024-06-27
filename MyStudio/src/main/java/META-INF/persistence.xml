@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+	version="2.0">
+	<!-- <persistence-unit name="localEntity"> <description>Spring JPA LocalEntityManagerFactoryBean</description> 
+		<provider>org.hibernate.ejb.HibernatePersistence</provider> <properties> 
+		<property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/> 
+		<property name="hibernate.hbm2ddl.auto" value="validate"/> <property name="javax.persistence.jdbc.driver" 
+		value="com.mysql.jdbc.Driver"/> <property name="javax.persistence.jdbc.url" 
+		value="jdbc:mysql://localhost:3306/studio"/> <property name="javax.persistence.jdbc.user" 
+		value="mystudio"/> <property name="javax.persistence.jdbc.password" value="studio@123"/> 
+		<property name= "hibernate.show_sql" value = "true" /> </properties> </persistence-unit> -->
+	<persistence-unit name="spring-jpa-unit">
+		<class>com.studio.domain.Customer</class>
+		<class>com.studio.domain.Address</class>
+	</persistence-unit>
+
+	<!-- <persistence-unit name="localContainerEntity"> <description>Spring 
+		JPA LocalContainerEntityManagerFactoryBean</description> <provider>org.hibernate.ejb.HibernatePersistence</provider> 
+		<properties> <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect"/> 
+		<property name="hibernate.hbm2ddl.auto" value="validate"/> </properties> 
+		</persistence-unit> -->
+</persistence>

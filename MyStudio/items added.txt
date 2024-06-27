@@ -1,0 +1,28 @@
+vasu--- 117---PAD     119--offer
+
+
+PRODUCT NAME  :PAD
+ITEM TO BE ADDED
+SMOKE PAD		2000    	vasu  	TYPE2-SMOKEPAD
+Mangal album PAD		2000   	vasu  	MANGAL-ALBUMPAD
+VINAIL PAD		1800   	vasu	VINYLPAD
+FIFA GOLD Pad			vasu	FIFA-GOLDPAD
+REYA GOLD Pad			vasu	REYA-GOLDPAD
+MOTION VIDEO ALBUM BOX +PAD	vasu	BOX+MOTION-VIDEOALBUMPAD
+Metal Emboss pad			vasu	METTALEMPOSSPAD
+TRANCY Pad with box		vasu	BOX+TRANCYPAD
+TRANCY Pad with box +Bag		vasu	BAG+BOX+TRANCYPAD
+FIFA GOLD pad+box			vasu	BOX+FIFA-GOLDPAD
+REYA GOLD Pad+box		vasu	BOX+REYA-GOLDPAD
+Metal Emboss Pad pad+box		vasu	BOX+METTALEMPOSSPAD
+SMOKE  Pad pad+box		vasu	BOX+SMOKEPAD
+AGARLIC with EMBOSS PAD		vasu	AGARLIC+EMPOSSPAD
+VINAIL  PAD+BOX			vasu	BOX+VINYLPAD
+
+AGARLIC PAD
+Double D pad			Gowsalya		DOUBLE-DPAD
+Twin pad with box			Gowsalya		BOX+TWINPAD
+Agarlic pad 1100			Gowsalya 		TYPE2-AGARLICPAD
+artica pad				Paramesw 	ARTICAPAD
+JEWELL box			Parameswari	JEWELL BOXPAD
+Premium box with stand		parameswari	STAND+PREMEMIUM BOXPAD

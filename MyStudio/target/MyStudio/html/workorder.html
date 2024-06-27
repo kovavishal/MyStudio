@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<title>Work Order</title>
+</head>
+<body>
+	<div class="container-fluid">
+		<div>
+			<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+				<a class="navbar-brand" href="#"></a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse"
+					data-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<ul class="navbar-nav mr-auto">
+						<li class="nav-item active"><a class="nav-link" href="#">Home
+								<span class="sr-only">(current)</span>
+						</a></li>
+
+						<li class="nav-item dropdown active"><a
+							class="nav-link dropdown-toggle" href="#" id="workordernav"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Work Order </a>
+							<div class="dropdown-menu" aria-labelledby="workordernav">
+								<a class="dropdown-item" href="#">Order Form</a> <a
+									class="dropdown-item" href="#">Voucher Form</a> <a
+									class="dropdown-item" href="#">Cancel Order Form</a> <a
+									class="dropdown-item" href="#">Extra Bill Copy</a> <a
+									class="dropdown-item" href="#">Order View</a>
+							</div></li>
+						<li class="nav-item dropdown active"><a
+							class="nav-link dropdown-toggle" href="#" id="processnav"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Process </a>
+							<div class="dropdown-menu" aria-labelledby="processnav">
+								<a class="dropdown-item" href="#">Payroll Process</a> <a
+									class="dropdown-item" href="#">Staff Advance</a>
+							</div></li>
+						<li class="nav-item dropdown active"><a
+							class="nav-link dropdown-toggle" href="#" id="workflownav"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Work Flow </a>
+							<div class="dropdown-menu" aria-labelledby="workflownav">
+								<a class="dropdown-item" href="#">Job Submission</a>
+							</div></li>
+						<li class="nav-item dropdown active"><a
+							class="nav-link dropdown-toggle" href="#" id="settingsnav"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Settings </a>
+							<div class="dropdown-menu" aria-labelledby="settingsnav">
+								<a class="dropdown-item" href="#">Type of Customer</a> <a
+									class="dropdown-item" href="#">Type of Job</a> <a
+									class="dropdown-item" href="#">Type of Item</a>
+							</div></li>
+						<li class="nav-item dropdown active"><a
+							class="nav-link dropdown-toggle" href="#" id="settingsnav"
+							role="button" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false"> Report </a>
+							<div class="dropdown-menu" aria-labelledby="settingsnav">
+								<a class="dropdown-item" href="#">Daily Business</a> <a
+									class="dropdown-item" href="#">Daily Transaction</a> <a
+									class="dropdown-item" href="#">Undelivered Order</a>
+							</div></li>
+					</ul>
+				</div>
+			</nav>
+		</div>
+		<div class="card">
+			<div class="card-body border-success mb-3 col-lg-12">
+				<form>
+					<div class="form-row">
+						<div class="form-group col-md-2 col-lg-4">
+							<label for="orderno">Order No</label> <input type="text"
+								id="orderno" placeholder="Order no" style="height: 25px;">
+						</div>
+						<div class="form-group col-md-2 col-lg-4">
+							<label for="inputZip">Order Date</label> <input type="text"
+								id="orderdate" placeholder="Order date time"
+								style="height: 25px;">
+						</div>
+						<div class="form-group col-md-2 col-lg-4">
+							<label for="ordertype">Order Type</label> <select id="ordertype"
+								style="height: 25px;">
+								<option selected>-Order type-</option>
+								<option>Order Type1</option>
+								<option>Order Type2</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6 col-lg-3">
+							<label for="customername">Customer Name</label> <input
+								type="text" class="form-control" id="customername"
+								placeholder="Customer name" style="height: 25px;">
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="customeraddress">Customer Address 1</label> <input
+								type="text" class="form-control" id="customeraddress1"
+								placeholder="Customer address 1" style="height: 25px;">
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="inputZip">Customer Address 2</label> <input
+								type="text" class="form-control" id="customeraddress2"
+								placeholder="Customer address 2" style="height: 25px;">
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="inputZip">Customer City</label> <input type="text"
+								class="form-control" id="customercity" placeholder="City"
+								style="height: 25px;">
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6 col-lg-3">
+							<label for="creditbalance">Credit Balance</label> <input
+								type="text" class="form-control" id="creidtbalance"
+								placeholder="Credit balance" style="height: 25px;">
+						</div>
+
+						<div class="form-group col-md-2 col-lg-3">
+							<label for="product">Product</label> <select id="product"
+								class="form-control" style="height: 25px;">
+								<option selected>-Product-</option>
+								<option>Product1</option>
+								<option>Product2</option>
+							</select>
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="deliverymode">Delivery Mode</label> <input
+								type="text" class="form-control" id="deliverymode"
+								placeholder="Delivery mode" style="height: 25px;">
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="paymentmode">Payment Mode</label> <input type="text"
+								class="form-control" id="paymentmode" placeholder="Payment mode"
+								style="height: 25px;">
+						</div>
+					</div>
+					<div class="row ">
+						<div class="col-sm-8 col-lg-9">
+							<div class="card mb-3">
+								<div class="card-body">
+									<div>
+										<table class="table table-bordered">
+											<thead>
+												<tr>
+													<th scope="col">#</th>
+													<th scope="col">Main Head</th>
+													<th scope="col">Sub Head</th>
+													<th scope="col">Quantity</th>
+													<th scope="col">Rate</th>
+													<th scope="col">Grand Total</th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr>
+													<th scope="row">1</th>
+													<td>Mark</td>
+													<td>Mark Well</td>
+													<td>1</td>
+													<td>100</td>
+													<td>100</td>
+												</tr>
+
+												<tr>
+													<th scope="row">2</th>
+													<td>Mark</td>
+													<td>Mark Well</td>
+													<td>1</td>
+													<td>100</td>
+													<td>100</td>
+												</tr>
+												<tr>
+													<th scope="row">3</th>
+													<td>Mark</td>
+													<td>Mark Well</td>
+													<td>1</td>
+													<td>100</td>
+													<td>100</td>
+												</tr>
+											</tbody>
+										</table>
+
+									</div>
+								</div>
+							</div>
+							<div>
+								<button type="button" class="btn btn-primary">Save and
+									Continue</button>
+								<button type="button" class="btn btn-success">Save</button>
+								<button type="button" class="btn btn-secondary">Edit</button>
+								<button type="button" class="btn btn-danger">Cancel</button>
+								<button type="button" class="btn btn-warning">Refresh</button>
+								<button type="button" class="btn btn-info">Exit</button>
+							</div>
+						</div>
+						<div class="col-sm-8 col-lg-3">
+							<div class="card row mb-3">
+								<div class="card-body">
+									<div>
+										<div class="col-lg-6">
+											<label for="size">Amount</label> <input type="text"
+												class="form-control" id="amount" placeholder="10.00"
+												style="height: 25px;">
+										</div>
+										<div class="col-lg-6">
+											<label for="size">Sub Amount</label> <input type="text"
+												class="form-control" id="amount" placeholder="10.00"
+												style="height: 25px;">
+										</div>
+										<div class="col-lg-6">
+											<label for="size">Tax</label> <input type="text"
+												class="form-control" id="amount" placeholder="10.00"
+												style="height: 25px;">
+										</div>
+										<div class="col-lg-6">
+											<label for="size">Cess</label> <input type="text"
+												class="form-control" id="amount" placeholder="10.00"
+												style="height: 25px;">
+										</div>
+										<div class="col-lg-6">
+											<label for="size">Net Amount</label> <input type="text"
+												class="form-control" id="amount" placeholder="10.00"
+												style="height: 25px;">
+										</div>
+										<div class="col-lg-6">
+											<label for="size">Advance</label> <input type="text"
+												class="form-control" id="amount" placeholder="10.00"
+												style="height: 25px;">
+										</div>
+										<div class="col-lg-6">
+											<label for="size">Balance</label> <input type="text"
+												class="form-control" id="amount" placeholder="10.00"
+												style="height: 25px;">
+										</div>
+
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</form>
+
+			</div>
+			<div class="card-footer">All right reserved</div>
+		</div>
+
+	</div>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

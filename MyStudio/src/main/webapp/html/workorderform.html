@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=yes">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/navbarcus.css">
+<title>Work Order</title>
+</head>
+<body>
+	<div class="nav-side-menu">
+		<div class="brand">
+			<img src="../images/camera-brand.jpg">
+		</div>
+		<i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse"
+			data-target="#menu-content"></i>
+		<div class="menu-list">
+			<ul id="menu-content" class="menu-content collapse out">
+				<li data-toggle="collapse" data-target="#workorder"
+					class="collapsed"><a href="#">&nbsp;Work Order<span
+						class="arrow"></span></a>
+					<ul class="sub-menu collapse" id="workorder">
+						<li><a href="#">Order Form</a></li>
+						<li><a href="#">Voucher Form</a></li>
+						<li><a href="#">Cancel Order Form</a></li>
+						<li><a href="#">Extra Bill Copy</a></li>
+						<li><a href="#">Order View</a></li>
+					</ul></li>
+
+				<li data-toggle="collapse" data-target="#process" class="collapsed">
+					<a href="#">&nbsp;Process<span class="arrow"></span></a>
+					<ul class="sub-menu collapse" id="process">
+						<li><a href="#">Payroll Process</a></li>
+						<li><a href="#">Staff Advance</a></li>
+					</ul>
+				</li>
+
+				<li data-toggle="collapse" data-target="#workflow" class="collapsed">
+					<a href="#">&nbsp;Work Flow<span class="arrow"></span></a>
+					<ul class="sub-menu collapse" id="workflow">
+						<li><a href="#">Job Submission</a></li>
+					</ul>
+				</li>
+
+				<li data-toggle="collapse" data-target="#settings" class="collapsed">
+					<a href="#">&nbsp;Settings<span class="arrow"></span></a>
+					<ul class="sub-menu collapse" id="settings">
+						<li><a href="#">Type of Customer</a></li>
+						<li><a href="#">Type of Job</a></li>
+						<li><a href="#">Type of Item</a></li>
+					</ul>
+				</li>
+
+				<li data-toggle="collapse" data-target="#service" class="collapsed">
+					<a href="#">&nbsp;Report<span class="arrow"></span></a>
+					<ul class="sub-menu collapse" id="service">
+						<li><a href="#">Daily Business</a></li>
+						<li><a href="#">Daily Transaction</a></li>
+						<li><a href="#">Undelivered Order</a></li>
+					</ul>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+	<div class="container-fluid" id="main">
+
+		<div class="card">
+
+			<div class="card-body bg-light border-success mb-3 col-lg-12"
+				style="color: navy;">
+				<form action="../html/workorderdetails.html">
+					<div class="form-row">
+						<div class="form-group col-md-2 col-lg-2">
+							<label for="orderno">Order No</label> <input type="text"
+								class="form-control" id="orderno">
+						</div>
+						<div class="form-group col-md-2 col-lg-3">
+							<label for="inputZip">Order Date</label> <input type="text"
+								class="form-control" id="orderdate">
+						</div>
+						<div class="form-group col-md-2 col-lg-2">
+							<label for="ordertype">Order Type</label> <select
+								class="form-control" id="ordertype">
+								<option selected>-Order type-</option>
+								<option>Order Type1</option>
+								<option>Order Type2</option>
+							</select>
+						</div>
+						<div class="form-group col-md-2 col-lg-2">
+							<label for="customertype">Customer Type</label> <select
+								class="form-control" id="customertype">
+								<option selected>-Order type-</option>
+								<option>Customer Type1</option>
+								<option>Customer Type2</option>
+							</select>
+						</div>
+						<div class="form-group col-md-2 col-lg-3">
+							<label for="agentname">Agent Name</label> <select
+								class="form-control" id="agentname">
+								<option selected>-Agent Name-</option>
+								<option>Agent Name</option>
+								<option>Agent Name2</option>
+							</select>
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6 col-lg-2">
+							<label for="customername">Due Date Time</label> <input
+								type="text" class="form-control" id="customername">
+						</div>
+						<div class="form-group col-md-6 col-lg-4">
+							<label for="customername">Customer Name</label> <input
+								type="text" class="form-control" id="customername">
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="customeraddress">Customer Address 1</label> <input
+								type="text" class="form-control" id="customeraddress1">
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="inputZip">Customer Address 2</label> <input
+								type="text" class="form-control" id="customeraddress2">
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6 col-lg-4">
+							<label for="customername">Wrapper Name</label> <input type="text"
+								class="form-control" id="customername">
+						</div>
+						<div class="form-group col-md-2 col-lg-2">
+							<label for="product">Products</label> <select id="product"
+								class="form-control">
+								<option selected>-Products-</option>
+								<option>Product1</option>
+								<option>Product2</option>
+							</select>
+						</div>
+						<div class="form-group col-md-6 col-lg-2">
+							<label for="customername">No of Products</label> <input
+								type="text" class="form-control" id="customername">
+						</div>
+						<div class="form-group col-md-6 col-lg-2">
+							<label for="customername">Size</label> <input type="text"
+								class="form-control" id="customername">
+						</div>
+						<div class="form-group col-md-6 col-lg-2">
+							<label for="customername">No of Sheets</label> <input type="text"
+								class="form-control" id="customername">
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6 col-lg-2">
+							<label for="creditbalance">Credit Balance</label> <input
+								type="text" class="form-control" id="creidtbalance">
+						</div>
+
+						<div class="form-group col-md-4 col-lg-2">
+							<label for="deliverymode">Delivery Mode</label> <input
+								type="text" class="form-control" id="deliverymode">
+						</div>
+						<div class="form-group col-md-4 col-lg-2">
+							<label for="paymentmode">Payment Mode</label> <select
+								id="paymentmode" class="form-control">
+								<option selected>-Payment Mode-</option>
+								<option>Cash</option>
+								<option>Credit</option>
+								<option>Bank</option>
+								<option>Cheque</option>
+							</select>
+						</div>
+						<div class="form-group col-md-6 col-lg-4">
+							<label for="customername">Remarks</label> <input type="text"
+								class="form-control" id="customername">
+						</div>
+						<div class="form-group col-md-6 col-lg-2">
+							<label for="customername">GST</label> <input type="text"
+								class="form-control" id="customername">
+						</div>
+					</div>
+
+					<div class="form-row">
+						<div class="form-group col-md-6 col-lg-3">
+							<label for="creditbalance">Cheque Number</label> <input
+								type="text" class="form-control" id="creidtbalance">
+						</div>
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="paymentmode">Cheque Date</label> <input type="text"
+								class="form-control" id="paymentmode">
+						</div>
+
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="deliverymode">Cheque Amount</label> <input
+								type="text" class="form-control" id="deliverymode">
+						</div>
+
+						<div class="form-group col-md-4 col-lg-3">
+							<label for="paymentmode">Branch Name</label> <input type="text"
+								class="form-control" id="paymentmode">
+						</div>
+					</div>
+
+					<div align="right">
+						<button type="submit" class="btn btn-primary">Continue</button>
+					</div>
+
+				</form>
+			</div>
+			<div class="card-footer">All right reserved</div>
+		</div>
+
+	</div>
+	<script src="../js/jquery.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script src="../js/bootstrap.min.js"></script>
+</body>
+</html>

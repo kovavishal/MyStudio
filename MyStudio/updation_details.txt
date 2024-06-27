@@ -1,0 +1,5 @@
+changes date	table name/ coded			changes	
+25-04-2021		orders table		cancel_date type:Date column added
+
+25-04-2021		coded on cancel		inserting current date in cancel_date column
+25-04-2021		canceled Report		created report 
