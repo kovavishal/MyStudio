@@ -370,6 +370,27 @@ public  List<Supplier> getSupplierInformation() {
 return cdetail;
 }
 
+public  List<Customer> getCustomerInformationForSeletedDates(String fromDate,String toDate) {
+	List<Customer> cdetail= null;
+	
+	try{
+		
+//		Query query= entityManager.createNativeQuery("select * from customer c, address ad where c.cust_id=ad.cust_id order by c.cust_id",Customer.class);
+		Query query= entityManager.createNativeQuery("select * from customer a ,orders b where a.cust_id = b.cust_id and b.created_date BETWEEN :fromDate AND :toDate group by b.cust_id order by b.created_date desc",Customer.class);
+		/*query.setParameter("CustomerId",Address.class);*/
+		query.setParameter("fromDate",fromDate);
+		query.setParameter("toDate",toDate);
+		cdetail= query.getResultList();
+		if (cdetail !=null){ 
+			System.out.println("from getCustomerFor selected Dates function"+cdetail.size()); 
+		} 
+	} 
+	catch (Exception _exception) {
+		logger.error(_exception);
+	}
+	return cdetail;
+}
+
   } 
   
   

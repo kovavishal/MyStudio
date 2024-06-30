@@ -103,7 +103,7 @@
 									<a href="<%=request.getContextPath()%>/report/customeroffersalereport"><li>Offer-Achiever Report</li></a>
 									<a href="<%=request.getContextPath()%>/report/customeroutstanding"><li>Customer Due-SMS</li></a>
 									<a href="<%=request.getContextPath()%>/report/customeroutstandingdetails"><li>Outstanding Summary</li></a>
-									<a href="<%=request.getContextPath()%>/report/dateWiseCustomeroutstandingdetails"><li>Date wise Outstanding Summary</li></a>
+									<a href="<%=request.getContextPath()%>/report/dateWiseCustomeroutstandingdetails"><li>Date wise Outstanding Summary</li></a> 
 									<a href="<%=request.getContextPath()%>/report/customervsbusiness"><li>Offer-SMS to Cust.</li></a>
 									<a href="<%=request.getContextPath()%>/report/cancelorderreport"><li>Cancel Order Report</li></a>
 									<a href="<%=request.getContextPath()%>/report/undeliveredalbum"><li>Undeliverd Album</li></a>

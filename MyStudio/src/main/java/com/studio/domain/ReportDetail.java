@@ -61,6 +61,9 @@ public class ReportDetail implements java.io.Serializable{
 	private double totalReceipt;
 	private double totalPayment;
 	private double totalpurchase;
+	
+	private int totalOrders;
+	
 //	private double advanceAmount;
 	
 	/**
@@ -392,6 +395,13 @@ public class ReportDetail implements java.io.Serializable{
 	public void setTotalpurchase(double totalpurchase) {
 		this.totalpurchase = totalpurchase;
 	}
+	public int getTotalOrders() {
+		return totalOrders;
+	}
+	public void setTotalOrders(int totalOrders) {
+		this.totalOrders = totalOrders;
+	}
+	
 	
 
 	

@@ -13,7 +13,7 @@
 <script src="<%=request.getContextPath()%>/js/buttons.print.min.js"></script>
 <script
 	src="<%=request.getContextPath()%>/js/bootstrap-datetimepicker.min.js"></script>
-<title>Date wise Customer Outstanding Summary Report</title>
+<title>Date Wise Customer Outstanding Summary Report</title>
 
 <style>
 .bs-example {
@@ -35,7 +35,7 @@
 			<div class="card-header text-center"
 				style="padding-bottom: 0px; padding-top: 0px; background: skyblue; color: #30567D; font-weight: 625;">
 				<jsp:include page="logout.jsp">
-					<jsp:param name="page" value=" Date Wise Customer Outstanding Summary Report" />
+					<jsp:param name="page" value="Date Wise Customer Outstanding Summary Report" />
 				</jsp:include>
 			</div>
 			<form:form method="POST" action="ledger" modelAttribute="report"
@@ -97,20 +97,6 @@
 				</div>
 				<div class="table-responsive col-lg-12"
 					style="padding-left: 10px; position: relative">
-					
-					
-					
-					
-					<div class="col-md-4 col-lg-3">
-							<label for="todate">Total Opening Balance</label>
-							<input type="text" id="textbox1" name="textbox1" >
-							
-						</div>
-					<div class="col-md-4 col-lg-3">
-							<label for="todate">Total Closing Balance</label>
-							<input type="text" id="textbox2" name="textbox2" >
-							
-						</div>
 					<table id="reporttable"
 						class="table table-bordered table-striped display nowrap">
 						<thead>
@@ -141,6 +127,9 @@
 								<th class="col-sm-2"
 									style="width: 10%; position: relative; text-align: center;"
 									data-field="creditAmount">CLOSING BALANCE</th>
+								<th class="col-sm-2"
+									style="width: 10%; position: relative; text-align: center;"
+									data-field="totalOrders">TOTAL ORDERS</th>
 
 							</tr>
 						</thead>
@@ -222,23 +211,20 @@ function report(){
        'fromDate': $('#fromdate').val(),
        'toDate' : $('#todate').val()
        };  
-    var totalOpeningBalance = 0;
-    var totalClosingBalance = 0;
+    
 	var tableClient = $('#reporttable').DataTable({
 		 "responsive": true,
 		 "destroy": true,
 		"searching":true,
 		 "ordering": false,
 		"ajax": {
-			"url": "${pageContext.request.contextPath}/report/cosdetail-test",
+			"url": "${pageContext.request.contextPath}/report/cosdetailForSelectedDates",
 			"type": "POST",
 			"data" : reqData,
 			"success" :  function(data){
 				console.log(data.length);
 				if(data.length > 0){
 				$.each(data, function(index, obj){
-					totalOpeningBalance = totalOpeningBalance+obj.openingBalance;
-					totalClosingBalance = totalClosingBalance+obj.balance;
 					tableClient.row.add([
 						obj.custId,
 						obj.firstName,
@@ -246,13 +232,11 @@ function report(){
 						obj.openingBalance,
 						obj.invoiceAmount,
 						obj.totalReceipt,
-						obj.balance
+						obj.balance,
+						obj.totalOrders
+						
 					]).draw();
-					
 				});
-				document.getElementById('textbox1').value = totalOpeningBalance;
-				document.getElementById('textbox2').value = totalClosingBalance;
-				
 				}else{
 					console.log("empty table");
 					$('#reporttable').DataTable({

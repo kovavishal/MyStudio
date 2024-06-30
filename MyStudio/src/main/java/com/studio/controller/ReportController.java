@@ -6,6 +6,8 @@ package com.studio.controller;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
@@ -168,13 +170,6 @@ public class ReportController implements WorkOrderConstants{
 	@RequestMapping(value="/customeroutstandingdetails",method = RequestMethod.GET)
 	public ModelAndView reportCustomerOutstandingDetails(){
 		ModelAndView modelAndView = new ModelAndView(ReportConstants.PAGE_CUST_OUTSTANDING_SUMMARY_REPORT.value());
-		Report report= new Report();
-		modelAndView.addObject(ReportConstants.REPORT.value(), report);
-		return modelAndView;
-	}
-	@RequestMapping(value="/dateWiseCustomeroutstandingdetails",method = RequestMethod.GET)
-	public ModelAndView reportDateWiseCustomerOutstandingDetails(){
-		ModelAndView modelAndView = new ModelAndView(ReportConstants.PAGE_DATE_WISE_CUST_OUTSTANDING_SUMMARY_REPORT.value());
 		Report report= new Report();
 		modelAndView.addObject(ReportConstants.REPORT.value(), report);
 		return modelAndView;
@@ -2509,7 +2504,131 @@ public int dateCompare(String d1, String d2){
 	     else
 	    	 return 0;
 }	   
-	    	
+@RequestMapping(value="/dateWiseCustomeroutstandingdetails",method = RequestMethod.GET)
+public ModelAndView reportDateWiseCustomerOutstandingDetails(){
+	ModelAndView modelAndView = new ModelAndView(ReportConstants.PAGE_DATE_WISE_CUST_OUTSTANDING_SUMMARY_REPORT.value());
+	Report report= new Report();
+	modelAndView.addObject(ReportConstants.REPORT.value(), report);
+	return modelAndView;
+}	    	
+@RequestMapping(value="/cosdetailForSelectedDates",method=RequestMethod.POST)
+public @ResponseBody List<ReportDetail> getCustomerSummaryReportForSelectedDates(HttpServletRequest request){
+List<ReportDetail> reportDetails = new ArrayList<ReportDetail>();
+List<ReportDetail> s = new ArrayList<ReportDetail>();
+double bfdAdvance=0.00;
+double bfdNetAmount=0.00; 
+double bfdReceipt=0.00;
+double outstanding=0.00;
+double balance=0.00;
+double invAmount=0.00;
+double receipt=0.00;
+double advance=0.00;
+try{
+	Report report = new Report();
+	String fromDate = request.getParameter("fromDate");
+	String toDate = request.getParameter("toDate");
+	DateTimeFormatter inputFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+	DateTimeFormatter outputFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+	LocalDate fromDates = LocalDate.parse(fromDate,inputFormatter);
+	LocalDate toDates = LocalDate.parse(toDate,inputFormatter);
+	String formatFromDate = fromDates.format(outputFormatter);
+	String formatToDate = toDates.format(outputFormatter);
+		report.setFromDate((DateUtils.toDate(fromDate,true)));
+		report.setToDate((DateUtils.toDate(toDate,true)));
+		List<ReportDetail> details=null;
+		List<ReportDetail> detailsBFD=null;
+//		List <Customer> cd =  customerDAO.getCustomerInformation();
+		List <Customer> cd =  customerDAO.getCustomerInformationForSeletedDates(formatFromDate,formatToDate);
+		System.out.println("cust size==="+cd.size());
+// Getting Address table information
+		List<Long> custIds = Utils.getCustomersIds(cd);
+		ReportDetail cdetail= new ReportDetail();
+		if (cd != null && !cd.isEmpty()){	
+			for (Customer customers: cd){
+				cdetail= new ReportDetail();
+				cdetail.setCustId(customers.getCustId());
+				cdetail.setFirstName(customers.getFirstName());
+				cdetail.setMobileNo(customers.getMobileNo());
+			reportDetails.add(cdetail);
+			
+ 			}
+		}
+		 //reportDetails = reportDAO.getCOSOrderDetails(report, reportDetails );
+		for (int i=0; i<reportDetails.size();i++){
+		//for (int i=0; i<10;i++){
+			 bfdAdvance=0.00;
+			 bfdNetAmount=0.00;
+			 bfdReceipt=0.00;
+			 outstanding=0.00;
+			 balance=0.00;
+			 invAmount=0.00;
+			 receipt=0.00;
+			 advance=0.00;
+			try{
+				cdetail= new ReportDetail();
+			// get customer IDs
+				report.setCustId(reportDetails.get(i).getCustId());
+			// get order for the period
+				List<Order> orders = reportDAO.getCOSOrderList(report);
+			//	System.out.println("my order size is :" + orders.size());
+			// get order IDs and netAmount for the period
+				
+				if(orders.size()>0){
+					List<Long> orderIds = Utils.getOrdersIds(orders);
+					if(orderIds !=null && !orderIds.isEmpty()){
+						details = reportService.customerOSRByOrderIds(report, orderIds);
+						if (details !=null && !details.isEmpty()){
+							invAmount=details.get(0).getInvoiceAmount() !=null? details.get(0).getInvoiceAmount():0.00;
+							advance=(Double)details.get(0).getCashsale() != null? details.get(0).getCashsale():0.00;
+							reportDetails.get(i).setInvoiceAmount(invAmount);
+							reportDetails.get(i).setTotalOrders(orders.size());
+						}
+						}
+				       }else{
+				    	   invAmount=0.00;	
+				    	   advance=0.00;
+				    	   reportDetails.get(i).setInvoiceAmount(invAmount);
+				       }
+					details = reportService.getCOSReceipt(report);
+
+					receipt=details.get(0).getPayAmount()+advance;
+					if(details!=null && !details.isEmpty())
+						reportDetails.get(i).setTotalReceipt(details.get(0).getPayAmount()+advance);
+			/* TO FIND OUTSTANDING - BEFORE FROM DATE ORDER DETAILS */
+					List<Order> ordersBeforeDate = reportDAO.getCOSOrdersBeforeDate(report);
+					if (ordersBeforeDate !=null && !ordersBeforeDate.isEmpty()){
+						List<Long> beforeDateOrderIds = Utils.getOrdersIds(ordersBeforeDate);
+						if (beforeDateOrderIds !=null && !beforeDateOrderIds.isEmpty()){
+							detailsBFD = reportService.customerOSRByOrderIds(report, beforeDateOrderIds);
+							if (detailsBFD !=null && !detailsBFD.isEmpty()){
+								bfdAdvance=detailsBFD.get(0).getCashsale();
+								bfdNetAmount=detailsBFD.get(0).getInvoiceAmount();
+							}
+							else{
+								bfdAdvance=0.00;
+								bfdNetAmount=0.00;
+							}
+						}
+					}
+					details = reportService.getCOSBFDReceipt(report);
+					if(details!=null && !details.isEmpty())
+						bfdReceipt=details.get(0).getPayAmount();
+					outstanding=bfdNetAmount-(bfdAdvance+bfdReceipt);
+					reportDetails.get(i).setOpeningBalance(outstanding);
+					balance=(outstanding+invAmount)-receipt;
+					reportDetails.get(i).setBalance(balance);
+						}catch (Exception _exception) {
+					logger.error("getReport::" + _exception);
+					_exception.printStackTrace();
+				}
+		}
+	}catch (Exception _exception) {
+	logger.error("getReport::" + _exception);
+	_exception.printStackTrace();
+	}
+return reportDetails;
+}
+
 	    
 	  
 		

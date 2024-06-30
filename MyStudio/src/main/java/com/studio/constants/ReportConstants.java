@@ -23,6 +23,7 @@ public enum ReportConstants {
 	PAGE_UNDELIVERED_ALBUM_REPORT("undeliveredalbum"),
 	PAGE_CUST_OUTSTANDING_SUMMARY_REPORT("customeroutstandingdetails"),
 	PAGE_DATE_WISE_CUST_OUTSTANDING_SUMMARY_REPORT("datewiseCustomeroutstandingdetails"),
+	
 	PAGE_CUST_OFFER_SALE_REPORT("customeroffersalereport"),
 	PAGE_SUPP_OUTSTANDING_REPORT("supplieroutstanding"),
 	PAGE_CUST_ADDRESS_REPORT("customeraddress"),
